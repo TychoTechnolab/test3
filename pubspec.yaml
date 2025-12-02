@@ -38,4 +38,4 @@ melos:
 
     api:prod:
       description: "Build Dart Frog"
-      run: cd apps/cw_api && dart_frog build
+      run: melos exec --scope="cw_api" -- dart_frog build --output build
