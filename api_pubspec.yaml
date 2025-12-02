@@ -1,0 +1,8 @@
+name: api_workspace
+environment:
+  sdk: ^3.9.2
+
+workspace:
+  - apps/cw_api
+  - packages/cw_core
+  - packages/cw_types
