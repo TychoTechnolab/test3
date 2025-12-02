@@ -1,0 +1,18 @@
+name: Main Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  backend:
+    uses: ./.github/workflows/api.yml
+    permissions:
+      packages: write
+      id-token: write
+
+  flutter:
+    uses: ./.github/workflows/app.yml
+    permissions:
+      contents: write

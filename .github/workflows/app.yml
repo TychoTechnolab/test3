@@ -1,0 +1,45 @@
+name: Build & Release Flutter APK
+
+on:
+  workflow_call:
+
+jobs:
+  build-flutter:
+    name: Build & Release Flutter APK
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: apps/cw_app
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.7'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build APK (release)
+        run: flutter build apk --release --dart-define=API_URL=${{ secrets.API_URL }}
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: apps/cw_app/build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload APK to GitHub Release (latest)
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          files: apps/cw_app/build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
