@@ -35,3 +35,7 @@ melos:
     api:dev:
       description: "Start Dart Frog"
       run: cd apps/cw_api && dart_frog dev
+
+    api:prod:
+      description: "Build Dart Frog"
+      run: cd apps/cw_api && dart_frog build

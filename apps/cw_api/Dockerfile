@@ -2,18 +2,16 @@ FROM dart:stable AS build
 
 WORKDIR /workspace
 
-COPY apps/cw_api ./apps/cw_api
+COPY pubspec.yaml ./pubspec.yaml
 COPY packages/cw_core ./packages/cw_core
 COPY packages/cw_types ./packages/cw_types
-COPY api_pubspec.yaml ./pubspec.yaml
+COPY apps/cw_api ./apps/cw_api
 
-WORKDIR /workspace/apps/cw_api
-RUN dart pub get
+RUN dart pub global activate melos
 
-RUN dart pub global activate dart_frog_cli
-ENV PATH="$PATH:/root/.pub-cache/bin"
-RUN dart_frog build
-RUN dart compile exe build/bin/server.dart -o /server
+RUN melos bootstrap --filter=apps/cw_api
+RUN melos run api:prod
+RUN dart compile exe apps/cw_api/build/bin/server.dart -o /server
 
 FROM scratch
 
