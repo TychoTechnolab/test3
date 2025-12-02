@@ -15,10 +15,12 @@ ENV PATH="$PATH:/root/.pub-cache/bin"
 RUN dart_frog build
 RUN dart compile exe build/bin/server.dart -o /server
 
-FROM scratch AS runtime
+FROM scratch
 
-COPY --from=build /runtime/ /  # Dart runtime
-COPY --from=build /server /server
+ENV PORT=8080
 
-EXPOSE 8080
-CMD ["/server"]
+COPY --from=build /runtime/ /
+COPY --from=build /app/server /app/server
+
+EXPOSE $PORT
+CMD ["/app/server"]
