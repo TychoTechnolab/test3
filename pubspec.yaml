@@ -1,0 +1,37 @@
+name: tl_circulaire_wandeling
+description: "Technolab Circulaire Wandeling"
+version: 1.0.0+1
+
+publish_to: none
+
+workspace:
+  - apps/cw_api
+  - apps/cw_app
+  - packages/cw_core
+  - packages/cw_types
+
+environment:
+  sdk: ^3.9.2
+
+dev_dependencies:
+  melos: ^7.3.0
+
+melos:
+  repository: https://github.com/Technolab-Leiden/TL-CIRCULAIRE-WANDELING
+
+  sdkPath: .fvm/flutter_sdk
+
+  ide:
+    intellij:
+      enabled: true
+    vscode:
+      enabled: true
+
+  scripts:
+    app:dev:
+      description: "Start Flutter"
+      run: cd apps/cw_app && flutter run
+
+    api:dev:
+      description: "Start Dart Frog"
+      run: cd apps/cw_api && dart_frog dev

@@ -1,0 +1,19 @@
+name: cw_api
+description: "Technolab Circulaire Wandeling - API"
+version: 1.0.0+1
+
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  cw_core: ^1.0.0
+  cw_types: ^1.0.0
+  dart_frog: ^1.1.0
+
+dev_dependencies:
+  dart_frog_lint: ^0.1.0
+  mocktail: ^1.0.3
+  test: ^1.26.2

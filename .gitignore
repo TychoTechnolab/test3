@@ -1,0 +1,19 @@
+# System
+.DS_Store
+
+# JetBrains
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio Code
+/.vscode/
+
+# Flutter Version Manager
+.fvm/
+
+# Pub
+.dart_tool/
+.packages
+coverage/

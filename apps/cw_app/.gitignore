@@ -1,0 +1,54 @@
+# System
+.DS_Store
+
+# JetBrains
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio Code
+/.vscode/
+
+# Android Studio
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Flutter
+**/ios/Flutter/.last_build_id
+.flutter-plugins-dependencies
+
+# Pub
+**/doc/api/
+.pub-cache/
+.pub/
+.dart_tool/
+.packages
+build/
+pubspec.lock
+coverage/
+
+# Environment
+!.env.example
+.env
+.env.*
+
+# Symbolication
+app.*.symbols
+
+# Obfuscation
+app.*.map.json
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/

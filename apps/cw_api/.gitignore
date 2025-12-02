@@ -1,0 +1,26 @@
+# See https://www.dartlang.org/guides/libraries/private-files
+
+# System
+.DS_Store
+
+# JetBrains
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio Code
+/.vscode/
+
+# Pub
+.dart_frog
+.dart_tool/
+.packages
+build/
+pubspec.lock
+coverage/
+
+# Environment
+!.env.example
+.env
+.env.*
