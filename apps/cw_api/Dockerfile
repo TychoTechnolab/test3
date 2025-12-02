@@ -20,7 +20,7 @@ FROM scratch
 ENV PORT=8080
 
 COPY --from=build /runtime/ /
-COPY --from=build /app/server /app/server
+COPY --from=build /server /server
 
 EXPOSE $PORT
-CMD ["/app/server"]
+CMD ["/server"]
